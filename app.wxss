@@ -1,0 +1,28 @@
+/**app.wxss**/
+@import './pages/css/iconFont.wxss';
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-family: "lucida grande",
+                 "lucida sans unicode",
+                 lucida,
+                 helvetica,
+                 "Hiragino Sans GB",
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
+}
+
+/* 滚动条优化 */
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+

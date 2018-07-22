@@ -1,0 +1,20 @@
+/**index.wxss**/
+.flex{
+  width: 100%;
+  display: flex;
+}
+.header {
+  justify-content: space-around;
+}
+
+.header input {
+  border-radius: 50px;
+   background-color: #cccccc; 
+  text-indent: 40rpx;
+  padding: 5rpx 20rpx;
+  font-size: 0.7rem;
+}
+.nav{
+
+  justify-content: space-around;  
+}

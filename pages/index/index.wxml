@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="flex header">
+    <view>
+      登陆
+    </view>
+    <view class="">
+      <input  type="text" confirm-type="search" style="text-indent: 10px;color:#333;" placeholder="红楼梦" />
+    </view>
+    <view>
+      <text class="iconfont icon-history"></text>
+      <text class="iconfont icon-download"></text>
+    </view>
+  </view>
+  <view class="flex nav">
+    <text>分类</text>
+    <text>推荐</text>
+    <text>精品</text>
+    <text>直播</text>
+    <text>广播</text>
+  </view>
+ <swiper>
+     <swiper-item>
+        <!--最近浏览-->
+        <view class="history">
+          
+        </view>
+        <!-- 娱乐 -->
+        <view class=""></view>
+        <view></view>
+     </swiper-item>
+     <swiper-item>
+        推荐区  
+     </swiper-item>
+     <swiper-item>
+        精品区
+     </swiper-item>
+     <swiper-item>
+        直播区
+     </swiper-item>
+     <swiper-item>
+        广播区
+     </swiper-item>
+     
+ </swiper>
+</view>
