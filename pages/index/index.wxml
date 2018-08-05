@@ -19,28 +19,59 @@
     <text>直播</text>
     <text>广播</text>
   </view>
- <swiper>
-     <swiper-item>
-        <!--最近浏览-->
-        <view class="history">
-          
-        </view>
-        <!-- 娱乐 -->
-        <view class=""></view>
-        <view></view>
-     </swiper-item>
-     <swiper-item>
-        推荐区  
-     </swiper-item>
-     <swiper-item>
-        精品区
-     </swiper-item>
-     <swiper-item>
-        直播区
-     </swiper-item>
-     <swiper-item>
-        广播区
-     </swiper-item>
-     
- </swiper>
+  <scroll-view class="">
+    <swiper>
+      <swiper-item>
+          <!--最近浏览-->
+          <view class="history">
+            <view class="title">最近浏览</view>
+            <block wx:for="{{historys}}" wx:key="{{index}}">
+              <navigator 
+                url="{{item.href}}" 
+                hover-class="navigator-hover" 
+                open-type="navigate">{{item.title}}</navigator>
+            </block>
+          </view>
+          <view class="book">
+            <block wx:for="{{bookCategory}}" wx:key="{{index}}">
+              <view>
+                <text>
+                  <text  class="iconfont {{item.icon}}"></text>{{item.title}}
+                </text>
+                <block wx:for="{{item.category}}" wx:key="{{index}}">
+                    <text>{{item.title}}</text>
+                </block>
+              </view>
+            </block>
+          </view>
+          <!-- 娱乐 -->
+          <view class="amusement">
+              <block wx:for="{{amusement}}" wx:key="{{index}}">
+                <text>
+                  <text  class="iconfont {{item.icon}}"></text>{{item.title}}
+                </text>
+              </block>
+          </view>
+          <view>知识</view>
+      </swiper-item>
+      <swiper-item>
+          推荐区  
+      </swiper-item>
+      <swiper-item>
+          精品区
+      </swiper-item>
+      <swiper-item>
+          直播区
+      </swiper-item>
+      <swiper-item>
+          广播区
+      </swiper-item>
+    </swiper>
+  </scroll-view>
+
+  <view class="footer">
+    <text >首页</text>
+    <text >发现</text>
+    <text >我的</text>
+  </view>
 </view>

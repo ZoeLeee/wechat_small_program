@@ -1,11 +1,11 @@
 
 @font-face {
   font-family: 'iconfont';  /* project id 758257 */
-  src: url('//at.alicdn.com/t/font_758257_zuaohkyfzan.eot');
-  src: url('//at.alicdn.com/t/font_758257_zuaohkyfzan.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_758257_zuaohkyfzan.woff') format('woff'),
-  url('//at.alicdn.com/t/font_758257_zuaohkyfzan.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_758257_zuaohkyfzan.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_758257_c5wolsbn5ei.eot');
+  src: url('//at.alicdn.com/t/font_758257_c5wolsbn5ei.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_758257_c5wolsbn5ei.woff') format('woff'),
+  url('//at.alicdn.com/t/font_758257_c5wolsbn5ei.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_758257_c5wolsbn5ei.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -15,11 +15,19 @@
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+  line-height: 1.5rem;
 }
+
+.icon-tushu:before { content: "\e600";color: blue }
 
 .icon-message:before { content: "\e653"; }
 
 .icon-download:before { content: "\e922"; }
+
+.icon-customerservice_fill:before { content: "\e6f0"; color: blue }
+
+.icon-wangwang:before { content: "\e74a"; color: blue }
 
 .icon-history:before { content: "\e74d"; }
 
