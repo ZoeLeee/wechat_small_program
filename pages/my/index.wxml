@@ -1,0 +1,26 @@
+<view class="my">
+	<view>
+		<avatar url="{{profile.avatarUrl}}" name="{{profile.nickname}}"></avatar>
+	</view>
+	<view class="user-info">
+		<view>
+			<text>动态</text>
+			<view>{{profile.eventCount}}</view>
+		</view>
+		<view>
+			<text>关注</text>
+			<view>{{profile.followeds}}</view>
+		</view>
+		<view>
+			<text>粉丝</text>
+			<view>{{profile.follows}}</view>
+		</view>
+		<view>
+			<text>个人资料</text>
+		</view>
+	</view>
+	<view>
+		<button bind:tap="loginOut">退出登陆</button>
+	</view>
+</view>
+

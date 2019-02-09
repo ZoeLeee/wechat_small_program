@@ -1,0 +1,3 @@
+<!--pages/phoneLogin/phoneLogin.wxml-->
+<login name="{{title}}" type="{{type}}" nameIcon="{{icon}}" />
+

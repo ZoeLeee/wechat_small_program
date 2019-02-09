@@ -1,0 +1,18 @@
+/* pages/login.wxss */
+.sign{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: 50%;
+}
+.sign navigator{
+  border: 1px solid #DA5E56;
+  padding: 10rpx 0;
+  text-align: center;
+  color: #DA5E56;
+  border-radius: 20rpx;
+}

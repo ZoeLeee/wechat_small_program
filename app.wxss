@@ -1,16 +1,14 @@
 /**app.wxss**/
 @import './pages/css/iconFont.wxss';
+@import './pages/css/weui.wxss';
+
 
 page{
   background: #f4f2f0;
 }
 
-.container {
+.page {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   box-sizing: border-box;
   font-family: "lucida grande",
                  "lucida sans unicode",
@@ -21,6 +19,9 @@ page{
                  "WenQuanYi Micro Hei",
                  sans-serif;
 }
+.page__bd{
+  height:100%;
+}
 
 /* 滚动条优化 */
 
@@ -30,11 +31,7 @@ page{
   color: transparent;
 }
 
-swiper{
+.flex{
   width: 100%;
-  height:calc( 100% - 50px);
-}
-scroll-view{
-  width: 100%;
-  height:calc( 100% - 50px);
+  display: flex;
 }

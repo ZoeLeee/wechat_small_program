@@ -1,0 +1,16 @@
+/* pages/my/index.wxss */
+.my{
+  padding: 20rpx;
+}
+.my>view{
+  background-color: #fff;
+}
+.my>.user-info{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding-top: 30rpx;
+}
+.my>view>button{
+  color:#DA5E56;
+}

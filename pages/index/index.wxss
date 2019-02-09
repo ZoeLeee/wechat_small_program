@@ -1,52 +1,28 @@
 /**index.wxss**/
-.flex{
-  width: 100%;
-  display: flex;
+.music-home .weui-navbar{
+  background-color: #fff;
 }
-.header {
-  justify-content: space-around;
+.music-home .weui-tab__panel{
+  padding: 20rpx;
 }
-
-.header input {
-  border-radius: 50px;
-   background-color: #cccccc; 
-  text-indent: 40rpx;
-  padding: 5rpx 20rpx;
-  font-size: 0.7rem;
+.music-home .weui-tab__content{
+  margin-top: 90rpx;
 }
-.nav{
-
-  justify-content: space-around;  
+.music-home .weui-navbar__slider{
+  background-color: #DA5E56;
 }
-.title{
-  font-size: 0.7rem;
-  color: #ccc;
+.music-home .weui-navbar__item.weui-bar__item_on {
+  color: #DA5E56;
 }
-.history{
-  margin: 1rem 0.5rem;
+.music-home .weui-flex .weui-flex__item{
+  text-align: center;
 }
-.book>view{
-  margin: 1rem 0;
-  padding: 0.5rem 0;
-  background: #fff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.amusement{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background: #fff;
-  padding-left:1rem; 
-}
-.amusement>text{
-  flex: 0 1 33.3333%;
-  margin-bottom: 1rem;
+.music-home .weui-flex .weui-flex__item text{
+  font-size: 28rpx;
 }
 
-.footer{
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.music-items{
+  margin: 40rpx 0;
+  color: #DA5E56;
+  box-shadow: 0 1px 0 0 #ccc;
 }

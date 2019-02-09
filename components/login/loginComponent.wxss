@@ -1,0 +1,13 @@
+/* components/login/loginComponent.wxss */
+.login-com{
+  width: 80%;
+  margin: 50rpx auto;
+}
+.login-com>view{
+  display: flex;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 30rpx;
+}
+.login-com>view>i{
+  margin-right: 20rpx;
+}

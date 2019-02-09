@@ -4,15 +4,16 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
-		"es6": true,
+		"urlCheck": false,
+		"es6": false,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
-	"appid": "touristappid",
+	"libVersion": "2.5.2",
+	"appid": "wxc84314bae46e22ca",
 	"projectname": "%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85",
 	"condition": {
 		"search": {

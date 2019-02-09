@@ -1,0 +1,13 @@
+/* components/avatar/avatar.wxss */
+.avatar{
+  display: flex;
+  align-items:center;
+  font-weight: lighter;
+}
+.avatar>cover-image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}

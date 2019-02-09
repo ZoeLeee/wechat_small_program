@@ -1,33 +1,65 @@
-//index.js
-//获取应用实例
-const app = getApp()
+const { req } = require('../../utils/request.js');
+const { ERequestApi, ERequestStatus } = require('../../utils/enum');
 
-const amusement=[
-  {title:"音乐",url:"",icon:"icon-customerservice_fill"},
-  {title:"相声评书",url:"",icon:"icon-customerservice_fill"},
-  {title:"段子",url:"",icon:"icon-customerservice_fill"},
-  {title:"情感生活",url:"",icon:"icon-customerservice_fill"},
-  {title:"音乐",url:"",icon:"icon-customerservice_fill"},
-  {title:"音乐",url:"",icon:"icon-customerservice_fill"},
-  {title:"音乐",url:"",icon:"icon-customerservice_fill"},
-  {title:"音乐",url:"",icon:"icon-customerservice_fill"},
-  {title:"音乐",url:"",icon:"icon-customerservice_fill"},
-]
-
-Page({
+Component({
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    historys:[],
-    bookCategory:[
-      {title:"有声小说",url:"",icon:"icon-customerservice_fill",category:[{title:"言情",url:""},{title:"悬疑",url:""},{title:"都市",url:""}]},
-      {title:"畅销书",url:"",icon:"icon-tushu",category:[{title:"言情",url:""},{title:"悬疑",url:""},{title:"都市",url:""}]},
-      {title:"儿童",url:"",icon:"icon-wangwang",category:[{title:"言情",url:""},{title:"悬疑",url:""},{title:"都市",url:""}]}],
-    amusement,
+    tabs: ["个性推荐", "歌单", "主播电台"],
+    activeIndex: 0,
+    sliderOffset: 0,
+    banners: [],
   },
-  onLoad: function () {
-    
+  lifetimes: {
+    async attached() {
+      // 需要设置slider的宽度，用于计算中间位置
+      var sliderWidth = 750 / this.data.tabs.length;
+      wx.getSystemInfo({
+        success: (res) => {
+          this.setData({
+            sliderOffset: sliderWidth * this.data.activeIndex
+          });
+        }
+      });
+
+      //请求轮播图
+      await this.getBanners();
+    },
+  },
+  pageLifetimes: {
+    show() {
+      if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+        this.getTabBar().setData({
+          selected: 0
+        })
+      }
+      this.checkLogin();
+    }
+  },
+  methods: {
+    checkLogin(){
+      const app=getApp();
+      let profile=wx.getStorageSync("profile");
+      app.globalData.isLogin=Boolean(wx.getStorageSync("profile"));
+      if(!app.globalData.isLogin){
+        wx.redirectTo({
+          url: "/pages/login/login"
+        })
+      }
+      else{
+        app.globalData.profile=JSON.parse(profile);
+      }
+    },
+    async getBanners() {
+      let { data } = await req(ERequestApi.Banner);
+      if (data.code === ERequestStatus.Ok) {
+        this.setData({ banners: data.banners })
+      }
+    },
+    tabClick(e) {
+      this.setData({
+        sliderOffset: e.currentTarget.offsetLeft,
+        activeIndex: e.currentTarget.id
+      });
+    },
   }
-  
-})
+});

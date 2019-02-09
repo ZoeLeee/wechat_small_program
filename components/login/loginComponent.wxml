@@ -1,0 +1,32 @@
+<!--components/login/loginComponent.wxml-->
+<login>
+	<view class="login-com">
+		<view>
+			<i class="iconfont {{nameIcon}}"></i>
+			<input
+			 placeholder="{{name}}"
+			 data-type="account"
+			 bindinput="handleChange"
+			 value="{{account}}"
+			/>
+		</view>
+		<view>
+			<i class="iconfont icon-password"></i>
+			<input
+			 password
+			 placeholder="密码"
+			 data-type="pwd"
+			 bindinput="handleChange"
+			 value="{{pwd}}"
+			/>
+		</view>
+		<button
+		 class="weui-btn"
+		 type="warn"
+		 bind:tap="login"
+		 disabled="{{!isValiAccount||!pwd}}"
+		>登陆
+		</button>
+	</view>
+</login>
+

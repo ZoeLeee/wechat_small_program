@@ -1,0 +1,21 @@
+{
+  "name": "mymusic",
+  "version": "1.0.0",
+  "description": "喜马拉雅电台",
+  "main": "app.js",
+  "dependencies": {
+    "regenerator": "^0.13.3"
+  },
+  "devDependencies": {
+    "regenerator": "0.13.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/zoelee/wechat_small_program.git"
+  },
+  "author": "Zoe",
+  "license": "ISC"
+}

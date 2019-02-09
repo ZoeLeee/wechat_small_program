@@ -1,0 +1,8 @@
+<!--components/avatar/avatar.wxml-->
+<avatar>
+	<view class="avatar">
+		<cover-image src="{{url}}"></cover-image>
+		<text >{{name}}</text>
+	</view>
+</avatar>
+

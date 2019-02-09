@@ -1,77 +1,54 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="flex header">
-    <view>
-      登陆
-    </view>
-    <view class="">
-      <input  type="text" confirm-type="search" style="text-indent: 10px;color:#333;" placeholder="红楼梦" />
-    </view>
-    <view>
-      <text class="iconfont icon-history"></text>
-      <text class="iconfont icon-download"></text>
-    </view>
-  </view>
-  <view class="flex nav">
-    <text>分类</text>
-    <text>推荐</text>
-    <text>精品</text>
-    <text>直播</text>
-    <text>广播</text>
-  </view>
-  <scroll-view class="">
-    <swiper>
-      <swiper-item>
-          <!--最近浏览-->
-          <view class="history">
-            <view class="title">最近浏览</view>
-            <block wx:for="{{historys}}" wx:key="{{index}}">
-              <navigator 
-                url="{{item.href}}" 
-                hover-class="navigator-hover" 
-                open-type="navigate">{{item.title}}</navigator>
-            </block>
-          </view>
-          <view class="book">
-            <block wx:for="{{bookCategory}}" wx:key="{{index}}">
-              <view>
-                <text>
-                  <text  class="iconfont {{item.icon}}"></text>{{item.title}}
-                </text>
-                <block wx:for="{{item.category}}" wx:key="{{index}}">
-                    <text>{{item.title}}</text>
-                </block>
-              </view>
-            </block>
-          </view>
-          <!-- 娱乐 -->
-          <view class="amusement">
-              <block wx:for="{{amusement}}" wx:key="{{index}}">
-                <text>
-                  <text  class="iconfont {{item.icon}}"></text>{{item.title}}
-                </text>
-              </block>
-          </view>
-          <view>知识</view>
-      </swiper-item>
-      <swiper-item>
-          推荐区  
-      </swiper-item>
-      <swiper-item>
-          精品区
-      </swiper-item>
-      <swiper-item>
-          直播区
-      </swiper-item>
-      <swiper-item>
-          广播区
-      </swiper-item>
-    </swiper>
-  </scroll-view>
-
-  <view class="footer">
-    <text >首页</text>
-    <text >发现</text>
-    <text >我的</text>
-  </view>
+<!-- index.wxml -->
+<view class="page">
+	<view class="page__bd">
+		<view class="weui-tab music-home">
+			<view class="weui-navbar">
+				<block wx:for="{{tabs}}" wx:key="*this">
+					<view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+						<view class="weui-navbar__title">{{item}}</view>
+					</view>
+				</block>
+				<view class="weui-navbar__slider" style="left:0; transform: translateX({{sliderOffset}}rpx); -webkit-transform: translateX({{sliderOffset}}px);" />
+			</view>
+			<view class="weui-tab__panel">
+				<view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+					<swiper
+					 indicator-dots="true"
+					 autoplay="true"
+					 circular="true"
+					 interval="3000"
+					>
+						<block wx:for="{{banners}}" wx:key="{{item.targetId}}">
+							<swiper-item>
+								<cover-image src="{{item.imageUrl}}" />
+							</swiper-item>
+						</block>
+					</swiper>
+					<view class="weui-flex music-items">
+						<view class="weui-flex__item">
+							<view class="iconfont icon-CN_doubanFM"></view>
+							<text>私人FM</text>
+						</view>
+						<view class="weui-flex__item">
+							<view class="iconfont icon-xihuan"></view>
+							<text>每日推荐</text>
+						</view>
+						<view class="weui-flex__item">
+							<view class="iconfont icon-gedan"></view>
+							<text>歌单</text>
+						</view>
+						<view class="weui-flex__item">
+							<view class="iconfont icon-paixingbang"></view>
+							<text>排行榜</text>
+						</view>
+					</view>
+					<music-grip title="推荐歌单" apiType="personalized"></music-grip>
+					<music-grip title="最新专辑" apiType="album/newest"></music-grip>
+				</view>
+				<view class="weui-tab__content" hidden="{{activeIndex != 1}}">选项二的内容</view>
+				<view class="weui-tab__content" hidden="{{activeIndex != 2}}">选项三的内容</view>
+			</view>
+		</view>
+	</view>
 </view>
+

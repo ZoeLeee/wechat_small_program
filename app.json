@@ -1,11 +1,41 @@
 {
-  "pages":[
-    "pages/index/index"
+  "pages": [
+    "pages/index/index",
+    "pages/my/index",
+    "pages/myMusic/index",
+    "pages/login/login",
+    "pages/phoneLogin/phoneLogin"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "电台",
-    "navigationBarTextStyle":"black"
-  }
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#DA5E56",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#919191",
+    "selectedColor": "#DA5E56",
+    "backgroundColor": "#F8F8F8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "发现音乐",
+        "iconPath": "images/cm2_btm_icn_discovery.png",
+        "selectedIconPath": "images/cm2_lay_icn_quality_new@2x.png"
+      },
+      {
+        "pagePath": "pages/myMusic/index",
+        "text": "我的音乐",
+        "iconPath": "images/cm2_btm_icn_music.png",
+        "selectedIconPath": "images/cm2_lay_icn_similar_new@2x.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "账号",
+        "iconPath": "./images/cm2_btm_icn_account.png",
+        "selectedIconPath": "images/cm2_list_icn_artists_new@2x.png"
+      }
+    ]
+  },
+  "debug": true
 }
