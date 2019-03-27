@@ -1,6 +1,6 @@
 <view class="my">
 	<view>
-		<avatar url="{{profile.avatarUrl}}" name="{{profile.nickname}}"></avatar>
+		<avatar url="{{profile.avatarUrl}}" name="{{profile.nickname}}" />
 	</view>
 	<view class="user-info">
 		<view>

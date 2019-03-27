@@ -1,0 +1,32 @@
+/* pages/likeList/likeList.wxss */
+.title{
+  display: flex;
+  align-items: center;
+}
+.title>image{
+  width: 240rpx;
+  height: 240rpx;
+  width: 40%;
+}
+.title>view{
+  width: 60%;
+}
+.title>view>navigator{
+  display: flex;
+}
+.title-items{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0 30rpx;
+}
+.title-items i{
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 50rpx;
+}
+.music-list .weui-cell__bd>text{
+  display: block;
+  font-size:24rpx;  
+  color:#bbb6b6;
+}

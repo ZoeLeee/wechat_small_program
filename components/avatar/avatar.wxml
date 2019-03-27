@@ -1,7 +1,7 @@
 <!--components/avatar/avatar.wxml-->
 <avatar>
-	<view class="avatar">
-		<cover-image src="{{url}}"></cover-image>
+	<view class="avatar {{size==='s'&&'small'}}">
+		<image src="{{url}}"></image>
 		<text >{{name}}</text>
 	</view>
 </avatar>

@@ -1,4 +1,6 @@
 // components/avatar/avatar.js
+const app=getApp();
+
 Component({
   /**
    * 组件的属性列表
@@ -6,6 +8,7 @@ Component({
   properties: {
     url:String,
     name:String,
+    size:String,
   },
 
   /**
@@ -14,7 +17,16 @@ Component({
   data: {
 
   },
-
+  lifetimes:{
+    attached(){
+      if(!this.data.url){
+        this.setData({
+          url:app.globalData.profile.avatarUrl,
+          name:app.globalData.profile.nickname
+        })
+      }
+    }
+  },
   /**
    * 组件的方法列表
    */

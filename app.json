@@ -4,7 +4,9 @@
     "pages/my/index",
     "pages/myMusic/index",
     "pages/login/login",
-    "pages/phoneLogin/phoneLogin"
+    "pages/phoneLogin/phoneLogin",
+    "pages/likeList/likeList",
+    "pages/play/play"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,6 +30,9 @@
         "text": "我的音乐",
         "iconPath": "images/cm2_btm_icn_music.png",
         "selectedIconPath": "images/cm2_lay_icn_similar_new@2x.png"
+      },
+      {
+        "pagePath": "pages/likeList/likeList"
       },
       {
         "pagePath": "pages/my/index",

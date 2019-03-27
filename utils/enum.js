@@ -11,6 +11,9 @@ const ERequestApi={
   EmailLogin:"login",
   PhoneLogin:"login/cellphone",
   Loginout:"logout",
+  LikeList:"likelist",
+  Song:"song/detail",
+  Play:"song/url"
 }
 module.exports = {
   ERequestStatus,ERequestApi

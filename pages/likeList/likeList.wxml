@@ -1,0 +1,51 @@
+<!--pages/likeList/likeList.wxml-->
+<view>
+	<view>
+		<view class="title">
+			<image src="/images/cm2_play_icn_loved@2x.png" />
+			<view>
+				<text >我喜欢的音乐</text>
+				<navigator>
+					<avatar size="s" />
+					<text>></text>
+				</navigator>
+			</view>
+		</view>
+		<view class="title-items">
+			<view>
+				<i class="iconfont icon-comment"></i>
+				<view>评论</view>
+			</view>
+			<view>
+				<i class="iconfont icon-share"></i>
+				<view>分享</view>
+			</view>
+			<view>
+				<i class="iconfont icon-download1"></i>
+				<view>下载</view>
+			</view>
+			<view>
+				<i class="iconfont icon-duoxuan"></i>
+				<view>多选</view>
+			</view>
+		</view>
+	</view>
+	<view class="music-list">
+		<view class="weui-cells__title">播放全部</view>
+		<block wx:for="{{list}}" wx:key="{{item.id}}">
+			<navigator url="/pages/play/play?sid={{item.id}}" class="weui-cells weui-cells_after-title">
+				<view class="weui-cell">
+					<view class="weui-cell__hd">
+						<text style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;">{{index+1}}</text>
+					</view>
+					<view class="weui-cell__bd">
+						{{item.name}}
+						<text>{{item.ar[0].name+"-"+item.al.name}}</text>
+					</view>
+					<view class="weui-cell__ft">播放</view>
+				</view>
+			</navigator>
+		</block>
+	</view>
+</view>
+
