@@ -22,12 +22,18 @@ Component({
    */
   methods: {
     async getSongList(){
+      if(app.globalData.songs){
+        this.setData({
+          list:app.globalData.songs
+        })
+        return;
+      }
       let ids=app.globalData.musicList;
       let {data}=await req(ERequestApi.Song,{
         data:{ids:ids.join(",")}
       })
       if(data.code===ERequestStatus.Ok){
-        data.songs.sort((a,b)=>parseFloat(b.publishTime)-parseFloat(a.publishTime));
+        app.globalData.songs=data.songs;
         this.setData({
           list:data.songs
         })

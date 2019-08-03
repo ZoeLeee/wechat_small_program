@@ -1,6 +1,6 @@
 <!--pages/likeList/likeList.wxml-->
 <view>
-	<view>
+	<!-- <view>
 		<view class="title">
 			<image src="/images/cm2_play_icn_loved@2x.png" />
 			<view>
@@ -29,9 +29,9 @@
 				<view>多选</view>
 			</view>
 		</view>
-	</view>
+	</view> -->
 	<view class="music-list">
-		<view class="weui-cells__title">播放全部</view>
+		<!-- <view class="weui-cells__title">播放全部</view> -->
 		<block wx:for="{{list}}" wx:key="{{item.id}}">
 			<navigator url="/pages/play/play?sid={{item.id}}" class="weui-cells weui-cells_after-title">
 				<view class="weui-cell">

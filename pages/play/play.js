@@ -19,16 +19,25 @@ Page({
     totalTimeStr:"",
     playerTimeStr:"00:00",
     draging:false,
+    nextId:0,
+    preId:0,
   },
   async play(sid){
+    let ids=app.globalData.musicList;
+    let currentIndex=ids.indexOf(Number(sid));
+    let nextIndex=currentIndex+1>=ids.length?0:currentIndex+1;
+    let preIndex=currentIndex-1<0?ids.length-1:currentIndex-1;
+    this.setData({
+      nextId:ids[nextIndex],
+      preId:ids[preIndex],
+    })
+
     let {data}=await req(ERequestApi.Play,{
       data:{id:sid}
     })
     if(data.code===ERequestStatus.Ok&&data.data.length>0){
       if(!data.data[0].url){
-        wx.navigateBack({
-          delta:1
-        })
+        await this.playNextMusic();
         return;
       }
       this.innerAudioContext = app.globalData.innerAudioContext;
@@ -52,6 +61,12 @@ Page({
       }
       this.registerEvent();
     }
+  },
+  async playNextMusic(){
+    await this.play(this.data.nextId);
+  },
+  async playPrevMusic(){
+    await this.play(this.data.preId);
   },
   onTimeUpdate() {
     if(this.data.draging) return;

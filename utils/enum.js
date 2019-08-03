@@ -13,7 +13,8 @@ const ERequestApi={
   Loginout:"logout",
   LikeList:"likelist",
   Song:"song/detail",
-  Play:"song/url"
+  Play:"song/url",
+  Check:"check/music",
 }
 module.exports = {
   ERequestStatus,ERequestApi

@@ -1,28 +1,36 @@
 <!--pages/play/play.wxml-->
 <wxs src="../../utils/tool.wxs" module="tools" />
 <view class="play">
-  <view>
-    <image src="{{backgroundImg}}"/>
-  </view>
-  <view class="weui-progress">
-    <text>{{playerTimeStr}}</text>
-    <view class="weui-progress__bar">
-      <!-- <progress percent="{{percent}}" stroke-width="3" color="#b6bab5" /> -->
-      <slider min="0" max="{{totalTime}}" step="1000" value="{{playedTime}}" block-size="12" bindchange="handleChanged" bindchanging="handleChangeing"  />
-    </view>
-    <text>{{totalTimeStr}}</text>
-  </view>
+	<view>
+		<image src="{{backgroundImg}}" />
+	</view>
+	<view class="weui-progress">
+		<text>{{playerTimeStr}}</text>
+		<view class="weui-progress__bar">
+			<!-- <progress percent="{{percent}}" stroke-width="3" color="#b6bab5" /> -->
+			<slider
+			 min="0"
+			 max="{{totalTime}}"
+			 step="1000"
+			 value="{{playedTime}}"
+			 block-size="12"
+			 bindchange="handleChanged"
+			 bindchanging="handleChangeing"
+			/>
+		</view>
+		<text>{{totalTimeStr}}</text>
+	</view>
 	<image src="{{backgroundImg}}" class="bg-img" />
 	<view class="weui-flex play-bar">
-    <view class="weui-flex__item">
-      <icon class="iconfont icon-Prev-Button" bindtap="" ></icon>
-    </view>
-    <view class="weui-flex__item">
-      <icon class="{{playing?'iconfont icon-Pause-Button':'iconfont icon-Play-Button'}}" bind:tap="handleMusic"></icon>
-    </view>
-    <view class="weui-flex__item">
-      <icon class="iconfont icon-Next-Button" bindtap=""></icon>
-    </view>
+		<view class="weui-flex__item">
+			<icon class="iconfont icon-Prev-Button" bindtap="playPrevMusic"></icon>
+		</view>
+		<view class="weui-flex__item">
+			<icon class="{{playing?'iconfont icon-Pause-Button':'iconfont icon-Play-Button'}}" bindtap="handleMusic"></icon>
+		</view>
+		<view class="weui-flex__item">
+			<icon class="iconfont icon-Next-Button" bindtap="playNextMusic"></icon>
+		</view>
 	</view>
 </view>
 

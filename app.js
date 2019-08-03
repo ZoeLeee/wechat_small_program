@@ -23,5 +23,7 @@ App({
     isLogin:false,
     profile:undefined,
     innerAudioContext:wx.createInnerAudioContext(),
+    musicList:[],
+    songs:undefined,
   }
 })
