@@ -3,7 +3,7 @@ const { ERequestApi, ERequestStatus } = require('../../utils/enum');
 
 Component({
   data: {
-    tabs: ["个性推荐", "歌单", "主播电台"],
+    tabs: ["网易云", "qq音乐", "虾米音乐","咪咕音乐"],
     activeIndex: 0,
     sliderOffset: 0,
     banners: [],
@@ -40,12 +40,7 @@ Component({
       const app=getApp();
       let profile=wx.getStorageSync("profile");
       app.globalData.isLogin=Boolean(wx.getStorageSync("profile"));
-      if(!app.globalData.isLogin){
-        wx.redirectTo({
-          url: "/pages/login/login"
-        })
-      }
-      else{
+      if(app.globalData.isLogin){
         app.globalData.profile=JSON.parse(profile);
       }
     },

@@ -1,1 +1,51 @@
 /* pages/play/play.wxss */
+.play{ 
+  height: 100%;
+  position: relative;
+}
+.play>.weui-progress{
+  position: absolute;
+  bottom: 80px;
+  width: 100%;
+  z-index: 1;
+}
+.play>view:first-child{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 80%;
+  height: 0;
+  padding-bottom: 80%;
+  border-radius: 50%;
+  z-index: 1;
+  overflow: hidden;
+}
+.play>view:first-child>image{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.play>.bg-img{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  filter: blur(50px);
+}
+.play-bar{
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.play-bar .iconfont{
+  font-size: 35px;
+}

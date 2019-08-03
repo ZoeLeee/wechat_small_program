@@ -22,5 +22,6 @@ App({
     userInfo: null,
     isLogin:false,
     profile:undefined,
+    innerAudioContext:wx.createInnerAudioContext(),
   }
 })

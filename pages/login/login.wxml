@@ -1,6 +1,6 @@
 <!--pages/login.wxml-->
 <view class='sign'>
-	<navigator class="weui-btn" open-type="navigateTo" url='/pages/phoneLogin/phoneLogin?type=phone'>手机登陆</navigator>
+	<!-- <navigator class="weui-btn" open-type="navigateTo" url='/pages/phoneLogin/phoneLogin?type=phone'>手机登陆</navigator> -->
 	<navigator class="weui-btn" open-type="navigateTo" url='/pages/phoneLogin/phoneLogin?type=email'>邮箱登陆</navigator>
 	<navigator class="weui-btn" open-type="navigateTo">注册</navigator>
 </view>

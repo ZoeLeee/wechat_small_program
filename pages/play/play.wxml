@@ -1,17 +1,28 @@
 <!--pages/play/play.wxml-->
-<view>
-	<image src="" />
-	<view>
-		icon
-	</view>
-	<view>
-		进度条
-	</view>
-	<view>
-		<button type="primary" bindtap="audioPlay">播放</button>
-		<button type="primary" bindtap="audioPause">暂停</button>
-		<button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>
-		<button type="primary" bindtap="audioStart">回到开头</button>
+<wxs src="../../utils/tool.wxs" module="tools" />
+<view class="play">
+  <view>
+    <image src="{{backgroundImg}}"/>
+  </view>
+  <view class="weui-progress">
+    <text>{{playerTimeStr}}</text>
+    <view class="weui-progress__bar">
+      <!-- <progress percent="{{percent}}" stroke-width="3" color="#b6bab5" /> -->
+      <slider min="0" max="{{totalTime}}" step="1000" value="{{playedTime}}" block-size="12" bindchange="handleChanged" bindchanging="handleChangeing"  />
+    </view>
+    <text>{{totalTimeStr}}</text>
+  </view>
+	<image src="{{backgroundImg}}" class="bg-img" />
+	<view class="weui-flex play-bar">
+    <view class="weui-flex__item">
+      <icon class="iconfont icon-Prev-Button" bindtap="" ></icon>
+    </view>
+    <view class="weui-flex__item">
+      <icon class="{{playing?'iconfont icon-Pause-Button':'iconfont icon-Play-Button'}}" bind:tap="handleMusic"></icon>
+    </view>
+    <view class="weui-flex__item">
+      <icon class="iconfont icon-Next-Button" bindtap=""></icon>
+    </view>
 	</view>
 </view>
 

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "手机登陆",
+  "navigationBarTitleText": "",
   "usingComponents": {
     "login":"/components/login/loginComponent"
   }

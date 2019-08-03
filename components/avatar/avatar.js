@@ -19,7 +19,7 @@ Component({
   },
   lifetimes:{
     attached(){
-      if(!this.data.url){
+      if (!this.data.url && app.globalData.isLogin){
         this.setData({
           url:app.globalData.profile.avatarUrl,
           name:app.globalData.profile.nickname

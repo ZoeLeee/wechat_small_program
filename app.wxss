@@ -5,6 +5,7 @@
 
 page{
   background: #f4f2f0;
+  height: 100%;
 }
 
 .page {

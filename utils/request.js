@@ -1,10 +1,17 @@
 
-const HOST ="http://www.dodream.online:3333/";
+// const HOST = "http://www.dodream.top:3333/";
+const HOST="https://www.dodream.top/music/";
 
 function mockSessionCookies(res){
   if( !res.header['Set-Cookie'] ) return;
   let obj=wx.getStorageSync('mockSessionCookies');
-  let cookies = obj&&JSON.parse(obj);
+  let cookies;
+  if(obj){
+    if(typeof obj==="string")
+      cookies=JSON.parse(obj);
+    else
+      cookies=obj;
+  }
   if( !cookies ) cookies = {};
   //解析Set-Cookie. wx.request会将多个Set-Cookie以','连接
   res.header['Set-Cookie'].split('HttpOnly,').forEach( ck => {

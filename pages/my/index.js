@@ -4,17 +4,23 @@ const {req}=require('../../utils/request');
 
 Component({
   data:{
-    profile:{}
+    profile:{},
+    buttonTitle: ""
   },
   pageLifetimes: {
     show() {
+      const app = getApp();
+      if (!app.globalData.isLogin){
+        this.setData({buttonTitle:"登陆"});
+      }
+      else
+        this.setData({ buttonTitle: "退出登陆" });
       if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
         this.getTabBar().setData({
           selected: 2
         })
       }
-      let app=getApp();
       this.setData({
         profile:app.globalData.profile
       })
@@ -24,14 +30,23 @@ Component({
   },
   methods:{
     async loginOut(){
-      let {data}= await req(ERequestApi.Loginout);
-      if(data.code===ERequestStatus.Ok){
-        wx.removeStorageSync('profile');
-        getApp().globalData.profile=undefined;
+      const app = getApp();
+      if(app.globalData.isLogin)
+      {
+        let { data } = await req(ERequestApi.Loginout);
+        console.log(data);
+        if (data.code === ERequestStatus.Ok) {
+          wx.removeStorageSync('profile');
+          getApp().globalData.profile = undefined;
+          wx.redirectTo({
+            url: "/pages/index/index"
+          });
+        } 
+      }
+      else
         wx.redirectTo({
-          url:"/pages/login/login"
-        })
-      } 
+          url: "/pages/login/login"
+        });
     }
   }
 })

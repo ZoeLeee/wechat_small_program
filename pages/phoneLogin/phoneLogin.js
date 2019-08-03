@@ -15,10 +15,15 @@ Page({
    */
   onLoad: function (options) {
     if(options.type==="email")
-    this.setData({
-      title:"输入邮箱",
-      type:"email",
-      icon:"icon-email"
-    })
+    {
+      wx.setNavigationBarTitle({ title: "邮箱登陆" });
+      this.setData({
+        title: "输入邮箱",
+        type: "email",
+        icon: "icon-email"
+      })
+    }
+    else
+      wx.setNavigationBarTitle({ title: "手机登陆" });
   },
 })

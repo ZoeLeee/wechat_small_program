@@ -20,7 +20,7 @@
 		</view>
 	</view>
 	<view>
-		<button bind:tap="loginOut">退出登陆</button>
+		<button bind:tap="loginOut">{{buttonTitle}}</button>
 	</view>
 </view>
 
