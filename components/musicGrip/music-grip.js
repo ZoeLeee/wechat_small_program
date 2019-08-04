@@ -1,6 +1,8 @@
 // components/musicGrip/music-grip.js
 const {req}=require('../../utils/request.js');
-const {ERequestStatus,ERequestApi}=require('../../utils/enum.js');
+const {ERequestStatus,ERequestApi,EPlayListType}=require('../../utils/enum.js');
+
+const app=getApp();
 
 Component({
   options: {
@@ -27,6 +29,7 @@ Component({
     async handleReq(){
       let data= await req(this.properties.apiType);
       if(data.code===ERequestStatus.Ok){
+        console.log(this.properties.apiType);
         switch(this.properties.apiType){
           case ERequestApi.RecommendSongList:
             this.setData({
@@ -36,9 +39,26 @@ Component({
           case ERequestApi.LatestAlbum:
             this.setData({
               list:data.albums.slice(0,6)
-            })
+            });
+          default:
+            break;
         }
       }
+    },
+    goto(e){
+      let id=e.currentTarget.dataset.id;
+      app.globalData.musicListId=id;
+      if(this.properties.apiType==="album/newest"){
+        //新专辑
+        app.globalData.musicListType=EPlayListType.Album;
+      }
+      else{
+        //推荐歌单
+        app.globalData.musicListType=EPlayListType.PlayList;
+      }
+      wx.switchTab({
+        url:"/pages/musicList/musicList",
+      });
     }
   },
   lifetimes: {

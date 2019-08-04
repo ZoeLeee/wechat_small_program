@@ -31,26 +31,25 @@ function serializeJson(obj){
 
 function req(api,query={}){
   return new Promise(resolve=>{
-    wx.request(Object.assign(
-      {
-        url: HOST + api,
-        method: "GET",
-        success: res => {
-          //保存每次请求的Set-Cookie
-          mockSessionCookies(res);
-          if(res.data.code===301){
-            wx.redirectTo({
-              url: "/pages/login/login"
-            })
-          }
-          resolve(res.data);
-        },
-        header:{
-          //每次请求都在header带上
-          Cookie:serializeJson(wx.getStorageSync('mockSessionCookies'))
+    wx.request({
+      url: HOST + api,
+      method: "GET",
+      ...query,
+      success: res => {
+        //保存每次请求的Set-Cookie
+        mockSessionCookies(res);
+        if(res.data.code===301){
+          wx.redirectTo({
+            url: "/pages/login/login"
+          })
         }
-      },query
-    ))
+        resolve(res.data);
+      },
+      header:{
+        //每次请求都在header带上
+        Cookie:serializeJson(wx.getStorageSync('mockSessionCookies'))
+      }
+    })
   })
 }
 

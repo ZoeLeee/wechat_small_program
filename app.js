@@ -28,5 +28,7 @@ App({
     musicListType:"",
     lastMusicListType:"",
     songs:[],
+    musicListId:"",
+    lastMusicListId:"",
   }
 })

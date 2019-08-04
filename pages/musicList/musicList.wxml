@@ -40,7 +40,7 @@
 					</view>
 					<view class="weui-cell__bd">
 						{{item.name}}
-						<text>{{item.ar[0].name+"-"+item.al.name}}</text>
+						<text>{{(item.ar[0]?item.ar[0].name:item.artists[0].name)+"-"+(item.al?item.al.name:item.album.name)}}</text>
 					</view>
 					<view class="weui-cell__ft">播放</view>
 				</view>

@@ -49,7 +49,7 @@ Component({
     async getBanners() {
       let data = await req(ERequestApi.Banner);
       if (data.code === ERequestStatus.Ok) {
-        this.setData({ banners: data.banners })
+        this.setData({ banners: data.banners.filter(b=>b.targetType===1) })
       }
     },
     tabClick(e) {

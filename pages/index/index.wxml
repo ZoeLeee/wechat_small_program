@@ -21,7 +21,9 @@
 					>
 						<block wx:for="{{banners}}" wx:key="{{item.targetId}}">
 							<swiper-item>
-								<cover-image src="{{item.imageUrl}}" />
+								<navigator url="/pages/play/play?sid={{item.targetId}}">
+									<cover-image src="{{item.imageUrl}}" />
+								</navigator>
 							</swiper-item>
 						</block>
 					</swiper>
