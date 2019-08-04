@@ -24,14 +24,23 @@ Page({
     preId: 0,
   },
   async play(sid) {
+    if(!sid){
+      wx.navigateBack();
+      return;
+    }
     let ids = app.globalData.musicList;
-    let currentIndex = ids.indexOf(Number(sid));
-    let nextIndex = currentIndex + 1 >= ids.length ? 0 : currentIndex + 1;
-    let preIndex = currentIndex - 1 < 0 ? ids.length - 1 : currentIndex - 1;
-    this.setData({
-      nextId: ids[nextIndex],
-      preId: ids[preIndex],
-    })
+    let currentIndex;
+    let nextIndex;
+    let preIndex;
+    if(ids&& ids.length>0){
+      currentIndex = ids.indexOf(Number(sid));
+      nextIndex = currentIndex + 1 >= ids.length ? 0 : currentIndex + 1;
+      preIndex = currentIndex - 1 < 0 ? ids.length - 1 : currentIndex - 1;
+      this.setData({
+        nextId: ids[nextIndex],
+        preId: ids[preIndex],
+      })
+    }
 
     let data = await req(ERequestApi.Play, {
       data: { id: sid }

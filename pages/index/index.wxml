@@ -20,11 +20,11 @@
 					 interval="3000"
 					>
 						<block wx:for="{{banners}}" wx:key="{{item.targetId}}">
-							<swiper-item>
-								<navigator url="/pages/play/play?sid={{item.targetId}}">
+							<navigator url="/pages/play/play?sid={{item.targetId}}">
+								<swiper-item>
 									<cover-image src="{{item.imageUrl}}" />
-								</navigator>
-							</swiper-item>
+								</swiper-item>
+							</navigator>
 						</block>
 					</swiper>
 					<view class="weui-flex music-items">
