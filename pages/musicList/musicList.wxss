@@ -1,4 +1,4 @@
-/* pages/likeList/likeList.wxss */
+/* pages/musicList/musicList.wxss */
 .title{
   display: flex;
   align-items: center;

@@ -1,6 +1,7 @@
 <!-- index.wxml -->
 <view class="page">
 	<view class="page__bd">
+		<search/>
 		<view class="weui-tab music-home">
 			<view class="weui-navbar">
 				<block wx:for="{{tabs}}" wx:key="*this">
@@ -25,11 +26,7 @@
 						</block>
 					</swiper>
 					<view class="weui-flex music-items">
-						<view class="weui-flex__item">
-							<view class="iconfont icon-CN_doubanFM"></view>
-							<text>私人FM</text>
-						</view>
-						<view class="weui-flex__item">
+						<view class="weui-flex__item" data-type="recommend" catch:tap="goto">
 							<view class="iconfont icon-xihuan"></view>
 							<text>每日推荐</text>
 						</view>

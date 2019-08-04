@@ -1,6 +1,8 @@
 const { req } = require('../../utils/request.js');
 const { ERequestApi, ERequestStatus } = require('../../utils/enum');
 
+const app=getApp();
+
 Component({
   data: {
     tabs: ["网易云", "qq音乐", "虾米音乐","咪咕音乐"],
@@ -45,7 +47,7 @@ Component({
       }
     },
     async getBanners() {
-      let { data } = await req(ERequestApi.Banner);
+      let data = await req(ERequestApi.Banner);
       if (data.code === ERequestStatus.Ok) {
         this.setData({ banners: data.banners })
       }
@@ -56,5 +58,11 @@ Component({
         activeIndex: e.currentTarget.id
       });
     },
+    goto(e){
+      app.globalData.musicListType=e.currentTarget.dataset.type;
+      wx.switchTab({
+        url:"/pages/musicList/musicList",
+      })
+    }
   }
 });

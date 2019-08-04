@@ -1,4 +1,7 @@
 /**index.wxss**/
+.music-home{
+  height: calc(100% - 92px);
+}
 .music-home .weui-navbar{
   background-color: #fff;
 }

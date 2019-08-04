@@ -33,8 +33,7 @@ Component({
       const app = getApp();
       if(app.globalData.isLogin)
       {
-        let { data } = await req(ERequestApi.Loginout);
-        console.log(data);
+        let data = await req(ERequestApi.Loginout);
         if (data.code === ERequestStatus.Ok) {
           wx.removeStorageSync('profile');
           getApp().globalData.profile = undefined;

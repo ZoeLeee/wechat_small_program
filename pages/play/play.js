@@ -32,7 +32,7 @@ Page({
       preId:ids[preIndex],
     })
 
-    let {data}=await req(ERequestApi.Play,{
+    let data=await req(ERequestApi.Play,{
       data:{id:sid}
     })
     if(data.code===ERequestStatus.Ok&&data.data.length>0){
@@ -43,11 +43,11 @@ Page({
       this.innerAudioContext = app.globalData.innerAudioContext;
       this.innerAudioContext.autoplay = true
       this.innerAudioContext.src =data.data[0].url;
-      let res = await req(ERequestApi.Song,{
+      data = await req(ERequestApi.Song,{
         data:{ids:sid}
       })
-      if (res.data.code === ERequestStatus.Ok){
-        let song=res.data.songs[0];
+      if (data.code === ERequestStatus.Ok){
+        let song=data.songs[0];
         let pic=song.al.picUrl;
         this.setData({
           backgroundImg: pic,

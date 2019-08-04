@@ -11,20 +11,15 @@
 	<view class="weui-panel weui-panel_access">
 		<view class="weui-panel__hd">我创建的歌单({{listCount}})</view>
 		<view class="weui-panel__bd">
-			<navigator
-			 url="/pages/likeList/likeList"
-			 open-type="switchTab"
-			 class="weui-media-box weui-media-box_appmsg"
-			 hover-class="weui-cell_active"
-			>
+			<view class="weui-media-box weui-media-box_appmsg">
 				<view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
 					<image class="weui-media-box__thumb" src="/images/cm2_play_icn_loved@2x.png" />
 				</view>
-				<view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+				<view class="weui-media-box__bd weui-media-box__bd_in-appmsg" catch:tap="goto">
 					<view class="weui-media-box__title">我喜欢的音乐</view>
 					<view class="weui-media-box__desc">{{likeList.length}}首</view>
 				</view>
-			</navigator>
+			</view>
 		</view>
 	</view>
 </view>

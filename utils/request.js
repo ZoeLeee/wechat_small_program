@@ -43,7 +43,7 @@ function req(api,query={}){
               url: "/pages/login/login"
             })
           }
-          resolve(res);
+          resolve(res.data);
         },
         header:{
           //每次请求都在header带上

@@ -25,7 +25,7 @@ Component({
    */
   methods: {
     async handleReq(){
-      let {data}= await req(this.properties.apiType);
+      let data= await req(this.properties.apiType);
       if(data.code===ERequestStatus.Ok){
         switch(this.properties.apiType){
           case ERequestApi.RecommendSongList:

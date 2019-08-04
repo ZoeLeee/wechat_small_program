@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "发现音乐",
   "usingComponents": {
-    "music-grip": "/components/musicGrip/music-grip"
+    "music-grip": "/components/musicGrip/music-grip",
+    "search":"/components/search/search"
   }
 }

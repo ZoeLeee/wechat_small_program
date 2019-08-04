@@ -3,9 +3,9 @@
     "pages/index/index",
     "pages/my/index",
     "pages/myMusic/index",
+    "pages/musicList/musicList",
     "pages/login/login",
     "pages/phoneLogin/phoneLogin",
-    "pages/likeList/likeList",
     "pages/play/play"
   ],
   "window": {
@@ -20,25 +20,16 @@
     "backgroundColor": "#F8F8F8",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "发现音乐",
-        "iconPath": "images/cm2_btm_icn_discovery.png",
-        "selectedIconPath": "images/cm2_lay_icn_quality_new@2x.png"
+        "pagePath": "pages/index/index"
       },
       {
-        "pagePath": "pages/myMusic/index",
-        "text": "我的音乐",
-        "iconPath": "images/cm2_btm_icn_music.png",
-        "selectedIconPath": "images/cm2_lay_icn_similar_new@2x.png"
+        "pagePath": "pages/myMusic/index"
       },
       {
-        "pagePath": "pages/likeList/likeList"
+        "pagePath": "pages/musicList/musicList"
       },
       {
-        "pagePath": "pages/my/index",
-        "text": "账号",
-        "iconPath": "./images/cm2_btm_icn_account.png",
-        "selectedIconPath": "images/cm2_list_icn_artists_new@2x.png"
+        "pagePath": "pages/my/index"
       }
     ]
   },

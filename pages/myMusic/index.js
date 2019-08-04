@@ -27,7 +27,7 @@ Component({
   methods:{
     async getLikeList(){
       let uid=app.globalData.profile.userId;
-      let {data}=await req(ERequestApi.LikeList,{
+      let data=await req(ERequestApi.LikeList,{
         uid
       });
       if(data.code===ERequestStatus.Ok){
@@ -36,6 +36,12 @@ Component({
         });
         app.globalData.musicList=data.ids;
       }
+    },
+    goto(){
+      app.globalData.musicListType="";
+      wx.switchTab({
+        url:"/pages/musicList/musicList"
+      })
     }
   }
 })

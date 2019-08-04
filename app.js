@@ -25,5 +25,8 @@ App({
     innerAudioContext:wx.createInnerAudioContext(),
     musicList:[],
     songs:undefined,
+    musicListType:"",
+    lastMusicListType:"",
+    songs:[],
   }
 })

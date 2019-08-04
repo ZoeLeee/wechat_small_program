@@ -40,7 +40,7 @@ Component({
         query.email = this.data.account;
       }
       query.password = this.data.pwd;
-      let { data } = await req(api, {
+      let data = await req(api, {
         method: "POST",
         data: query
       });
