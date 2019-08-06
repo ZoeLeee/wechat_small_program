@@ -1,16 +1,16 @@
 // pages/myMusic/index.js
 const { req } = require('../../utils/request.js');
-const { ERequestApi, ERequestStatus } = require('../../utils/enum');
+const { ERequestApi, ERequestStatus,EPlayListType } = require('../../utils/enum');
 
-const app=getApp();
+const app = getApp();
 
 Component({
-  data:{
-    likeList:[],
-    listCount:0,
+  data: {
+    listCount: 0,
+    playList: [],
   },
   pageLifetimes: {
-    show() {
+    async show() {
       if (!app.globalData.isLogin) return;
       if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
@@ -19,28 +19,33 @@ Component({
         })
       }
       this.setData({
-        listCount:app.globalData.profile.playlistCount
+        listCount: app.globalData.profile.playlistCount
       })
-      this.getLikeList();
+      await this.getUserPlayList();
     }
   },
-  methods:{
-    async getLikeList(){
-      let uid=app.globalData.profile.userId;
-      let data=await req(ERequestApi.LikeList,{
-        uid
+  methods: {
+    async getUserPlayList() {
+      let uid = app.globalData.profile.userId;
+      let data = await req(ERequestApi.PlayList, {
+        data: { uid }
       });
-      if(data.code===ERequestStatus.Ok){
+      if (data.code === ERequestStatus.Ok) {
         this.setData({
-          likeList:data.ids
+          playList: data.playlist
         });
-        app.globalData.musicList=data.ids;
       }
     },
-    goto(){
-      app.globalData.musicListType="";
+    goto(e) {
+      let id = e.currentTarget.dataset.id;
+      if (id) {
+        app.globalData.musicListId = id;
+        app.globalData.musicListType = EPlayListType.PlayList;
+      }
+      else
+        app.globalData.musicListType = "";
       wx.switchTab({
-        url:"/pages/musicList/musicList"
+        url: "/pages/musicList/musicList"
       })
     }
   }

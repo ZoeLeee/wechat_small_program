@@ -1,1 +1,12 @@
 /* pages/myMusic/index.wxss */
+.my-music{
+  height: 100%;
+}
+.my-music>.weui-panel{
+  height: calc(100% - 92px);
+}
+
+.my-music>.weui-panel>.weui-panel__bd{
+  height: calc(100% - 44px);
+  overflow: auto;
+}

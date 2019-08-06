@@ -19,6 +19,7 @@ const ERequestApi={
   Play:"song/url",  //播放音乐
   Check:"check/music",
   PlayListDetail:"playlist/detail",
+  PlayList:"user/playlist", //获取用户歌单
 }
 
 const EPlayListType={
