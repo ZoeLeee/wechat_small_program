@@ -29,3 +29,7 @@
   color: #DA5E56;
   box-shadow: 0 1px 0 0 #ccc;
 }
+.music-home>.weui-tab__panel>.weui-tab__content>swiper image{
+  height: 100%;
+  width: 100%;
+}

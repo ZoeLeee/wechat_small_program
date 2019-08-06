@@ -12,42 +12,43 @@
 				<view class="weui-navbar__slider" style="left:0; transform: translateX({{sliderOffset}}rpx); -webkit-transform: translateX({{sliderOffset}}px);" />
 			</view>
 			<view class="weui-tab__panel">
-				<!-- <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+				<view class="weui-tab__content" hidden="{{activeIndex != 0}}">
 					<swiper
 					 indicator-dots="true"
 					 autoplay="true"
+					 indicator-active-color="#ccc"
 					 circular="true"
 					 interval="3000"
 					>
 						<block wx:for="{{banners}}" wx:key="{{item.targetId}}">
 							<navigator url="/pages/play/play?sid={{item.targetId}}">
 								<swiper-item>
-									<cover-image src="{{item.imageUrl}}" />
+									<image src="{{item.imageUrl}}" />
 								</swiper-item>
 							</navigator>
 						</block>
-					</swiper> -->
-				<view class="weui-flex music-items">
-					<view class="weui-flex__item" data-type="recommend" catch:tap="goto">
-						<view class="iconfont icon-xihuan"></view>
-						<text>每日推荐</text>
+					</swiper>
+					<view class="weui-flex music-items">
+						<view class="weui-flex__item" data-type="recommend" catch:tap="goto">
+							<view class="iconfont icon-xihuan"></view>
+							<text>每日推荐</text>
+						</view>
+						<view class="weui-flex__item">
+							<view class="iconfont icon-gedan"></view>
+							<text>歌单</text>
+						</view>
+						<view class="weui-flex__item">
+							<view class="iconfont icon-paixingbang"></view>
+							<text>排行榜</text>
+						</view>
 					</view>
-					<view class="weui-flex__item">
-						<view class="iconfont icon-gedan"></view>
-						<text>歌单</text>
-					</view>
-					<view class="weui-flex__item">
-						<view class="iconfont icon-paixingbang"></view>
-						<text>排行榜</text>
-					</view>
+					<music-grip title="推荐歌单" apiType="personalized"></music-grip>
+					<music-grip title="最新专辑" apiType="album/newest"></music-grip>
 				</view>
-				<music-grip title="推荐歌单" apiType="personalized"></music-grip>
-				<music-grip title="最新专辑" apiType="album/newest"></music-grip>
+				<view class="weui-tab__content" hidden="{{activeIndex != 1}}">选项二的内容</view>
+				<view class="weui-tab__content" hidden="{{activeIndex != 2}}">选项三的内容</view>
 			</view>
-			<view class="weui-tab__content" hidden="{{activeIndex != 1}}">选项二的内容</view>
-			<view class="weui-tab__content" hidden="{{activeIndex != 2}}">选项三的内容</view>
 		</view>
 	</view>
-</view>
 </view>
 
