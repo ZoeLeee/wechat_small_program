@@ -27,10 +27,23 @@ Component({
    */
   methods: {
     async handleReq(){
-      let data= await req(this.properties.apiType);
+      let api;
+      switch(this.properties.apiType){
+        case "personalized":
+          api=ERequestApi.RecommendSongList;
+          break;
+        case "album/newest":
+          api=ERequestApi.LatestAlbum;
+          break;
+        default:
+          break;
+      }
+
+      if(!api) return;
+
+      let data= await req(api);
       if(data.code===ERequestStatus.Ok){
-        console.log(this.properties.apiType);
-        switch(this.properties.apiType){
+        switch(api){
           case ERequestApi.RecommendSongList:
             this.setData({
               list: data.result.slice(0,6)

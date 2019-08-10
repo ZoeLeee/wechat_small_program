@@ -32,7 +32,7 @@ function serializeJson(obj){
 function req(api,query={}){
   return new Promise(resolve=>{
     wx.request({
-      url: HOST + api,
+      url: api,
       method: "GET",
       ...query,
       success: res => {
