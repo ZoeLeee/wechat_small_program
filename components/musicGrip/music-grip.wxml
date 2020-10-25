@@ -5,12 +5,12 @@
 			<text>{{title}}</text>
 		</view>
 		<view class="weui-grids">
-			<block wx:for="{{list}}" wx:key="{{item.id}}">
+			<block wx:for="{{list}}" wx:key="id">
 				<view class="weui-grid" data-id="{{item.id}}" catch:tap="goto">
 					<view class='image-container'>
-						<image class="" src="{{item.picUrl}}" />
+						<image class="img" src="{{item.picUrl}}" />
 					</view>
-					<view class="weui-grid__label">{{item.name}}</view>
+					<view class="weui-grid__label music-title">{{item.name}}</view>
 				</view>
 			</block>
 		</view>

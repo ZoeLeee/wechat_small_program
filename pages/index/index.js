@@ -23,7 +23,7 @@ Component({
       });
 
       //请求轮播图
-      await this.getBanners();
+      // await this.getBanners();
     },
   },
   pageLifetimes: {

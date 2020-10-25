@@ -45,6 +45,10 @@ Component({
       if(data.code===ERequestStatus.Ok){
         switch(api){
           case ERequestApi.RecommendSongList:
+            for(let item of data.result){
+              if(item.name.length>15)
+                item.name=item.name.slice(0,14)+"...";
+            }
             this.setData({
               list: data.result.slice(0,6)
             });

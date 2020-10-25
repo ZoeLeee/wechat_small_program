@@ -2,6 +2,8 @@ const {req} = require('../../utils/request');
 
 const {ERequestApi,ERequestStatus,EQQRequestApi,ETabType} = require('../../utils/enum');
 
+const app=getApp();
+
 Component({
   /**
    * 组件的属性列表
@@ -21,23 +23,7 @@ Component({
   },
   lifetimes: {
     async attached() {
-      //请求轮播图
-      switch(this.properties.type){
-        case ETabType.NetEase:
-          await this.getBanners();
-          break;
-        case ETabType.QQ:
-          await this.getQQBanner();
-          break;
-        case ETabType.Xiami:
-          await this.getQQBanner();
-          break;
-        case ETabType.MiGu:
-          await this.getQQBanner();
-          break;
-        default:
-          break;
-      }
+      
     },
   },
   /**
@@ -51,7 +37,7 @@ Component({
         case ETabType.QQ:
           return data.map(d=>{
             return {
-              imageUrl:d.pic_info.url,
+              imageUrl:d.picUrl,
               targetId:d.id,
             }
           })
@@ -81,6 +67,27 @@ Component({
       wx.switchTab({
         url:"/pages/musicList/musicList",
       })
+    }
+  },
+  pageLifetimes: {
+    async show(){
+      //请求轮播图
+      switch (this.properties.type) {
+        case ETabType.NetEase:
+          await this.getBanners();
+          break;
+        case ETabType.QQ:
+          await this.getQQBanner();
+          break;
+        // case ETabType.Xiami:
+        //   await this.getQQBanner();
+        //   break;
+        // case ETabType.MiGu:
+        //   await this.getQQBanner();
+        //   break;
+        default:
+          break;
+      }
     }
   }
 })

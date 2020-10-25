@@ -1,4 +1,15 @@
 /**index.wxss**/
+.page>.page__bd>view:first-child{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.page>.page__bd>view:first-child>search{
+  flex:1 ;
+}
+.page>.page__bd>view:first-child>navigator{
+  padding: 0 5px;
+}
 .music-home{
   height: calc(100% - 92px);
 }

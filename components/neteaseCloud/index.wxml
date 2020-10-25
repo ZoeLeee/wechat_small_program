@@ -8,10 +8,10 @@
 		 circular="true"
 		 interval="3000"
 		>
-			<block wx:for="{{banners}}" wx:key="{{item.targetId}}">
+			<block wx:for="{{banners}}" wx:key="targetId">
 				<navigator url="/pages/play/play?sid={{item.targetId}}">
 					<swiper-item>
-						<image src="{{item.imageUrl}}" />
+						<image class="img" src="{{item.imageUrl}}" />
 					</swiper-item>
 				</navigator>
 			</block>

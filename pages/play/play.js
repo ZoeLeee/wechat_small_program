@@ -9,7 +9,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  innerAudioContext: null,
+  innerAudioContext:  app.globalData.innerAudioContext,
   disvailCount: 0,
   data: {
     playing: false,
@@ -24,22 +24,40 @@ Page({
     preId: 0,
   },
   async play(sid) {
-    if(!sid){
+    if(!app.globalData.currentPlayId && !sid){
       wx.navigateBack();
       return;
     }
+
+    let currentId=sid ||app.globalData.currentPlayId;
+
     let ids = app.globalData.musicList;
     let currentIndex;
     let nextIndex;
     let preIndex;
     if(ids&& ids.length>0){
-      currentIndex = ids.indexOf(Number(sid));
+      currentIndex = ids.indexOf(Number(currentId));
       nextIndex = currentIndex + 1 >= ids.length ? 0 : currentIndex + 1;
       preIndex = currentIndex - 1 < 0 ? ids.length - 1 : currentIndex - 1;
       this.setData({
         nextId: ids[nextIndex],
         preId: ids[preIndex],
       })
+    }
+    if(!sid&&app.globalData.currentPlayId){
+      let info=app.globalData.currentPlayInfo;
+      this.setData({
+        backgroundImg: info.backgroundImg,
+        totalTime: this.innerAudioContext.duration*1000,
+        totalTimeStr: this.convertTimeToStr(this.innerAudioContext.duration * 1000),
+        playing: true,
+      })
+      this.onTimeUpdate();
+      wx.setNavigationBarTitle({
+        title: info.name,
+      });
+      this.registerEvent();
+      return;
     }
 
     let data = await req(ERequestApi.Play, {
@@ -56,15 +74,18 @@ Page({
         await this.playNextMusic();
         return;
       }
-      this.innerAudioContext = app.globalData.innerAudioContext;
-      this.innerAudioContext.autoplay = true
       this.innerAudioContext.src = data.data[0].url;
       data = await req(ERequestApi.Song, {
         data: { ids: sid }
       })
       if (data.code === ERequestStatus.Ok) {
+        app.globalData.currentPlayId=sid;
         let song = data.songs[0];
         let pic = song.al.picUrl;
+        app.globalData.currentPlayInfo={
+          backgroundImg: pic,
+          name: song.name
+        }
         this.setData({
           backgroundImg: pic,
           totalTime: song.dt,
@@ -94,9 +115,7 @@ Page({
     })
   },
   registerEvent() {
-    this.innerAudioContext.onPlay(() => {
       this.innerAudioContext.onTimeUpdate(this.onTimeUpdate);
-    })
   },
   removeEvent() {
     this.innerAudioContext.offTimeUpdate(this.onTimeUpdate);
@@ -134,7 +153,6 @@ Page({
    */
   onLoad: function (options) {
     let sid = options.sid;
-    if (sid !== undefined)
       this.play(sid);
 
   },

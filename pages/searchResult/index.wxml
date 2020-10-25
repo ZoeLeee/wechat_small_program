@@ -1,0 +1,8 @@
+<!--pages/searchRusult/index.wxml-->
+<view class="weui-cells searchbar-result">
+    <block wx:for="{{list}}" wx:key="{{item.id}}">
+        <view class="weui-cell__bd" >
+            <view  bindtap="goto" data-keyword="{{item.name}}">{{item.name}}</view>
+        </view>
+    </block>
+</view>

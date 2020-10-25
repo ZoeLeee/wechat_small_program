@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/musicList/musicList",
     "pages/my/index",
     "pages/myMusic/index",
-    "pages/musicList/musicList",
     "pages/login/login",
     "pages/phoneLogin/phoneLogin",
-    "pages/play/play"
+    "pages/play/play",
+    "pages/searchResult/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,6 +31,9 @@
       },
       {
         "pagePath": "pages/my/index"
+      },
+      {
+        "pagePath": "pages/searchResult/index"
       }
     ]
   },

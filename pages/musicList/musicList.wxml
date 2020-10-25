@@ -31,8 +31,7 @@
 		</view>
 	</view> -->
 	<view class="music-list">
-		<!-- <view class="weui-cells__title">播放全部</view> -->
-		<block wx:for="{{list}}" wx:key="{{item.id}}">
+		<block wx:for="{{list}}" wx:key="id">
 			<navigator url="/pages/play/play?sid={{item.id}}" class="weui-cells weui-cells_after-title">
 				<view class="weui-cell">
 					<view class="weui-cell__hd">

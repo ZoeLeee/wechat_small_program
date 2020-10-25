@@ -1,4 +1,4 @@
-.music-content>swiper image{
+.music-content .img{
   height: 100%;
   width: 100%;
 }

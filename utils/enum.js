@@ -2,9 +2,9 @@ const ERequestStatus={
   Ok:200,
   NotLogin:301,
 }
-// const HOST = "http://www.dodream.top:3333/";
-const NET_EASE_HOST="https://www.dodream.top/music/";
-const QQ_HOST="https://v1.itooi.cn/tencent/"
+// const NET_EASE_HOST="http://localhost:3000/";
+const NET_EASE_HOST="http://www.dodream.wang:3006/";
+const QQ_HOST="http://localhost:3300/"
 
 const ERequestApi={
   RecommendSongList:NET_EASE_HOST+"personalized", //推荐歌单
@@ -23,16 +23,20 @@ const ERequestApi={
   Check:NET_EASE_HOST+"check/music",
   PlayListDetail:NET_EASE_HOST+"playlist/detail",
   PlayList:NET_EASE_HOST+"user/playlist", //获取用户歌单
+  Search:NET_EASE_HOST+"search", //搜索歌曲
+  SearchSuggest:NET_EASE_HOST+"search/suggest", //搜索建议
+  Album:NET_EASE_HOST+"album"
 }
 
 const EPlayListType={
   Recommend:"recommend",
   PlayList:"playList",
   Album:"album",
+  Keyword:"kw",
 }
 
 const EQQRequestApi={
-  Banner:QQ_HOST+"banner",
+  Banner:QQ_HOST+"recommend/banner",
 }
 
 const ETabType={

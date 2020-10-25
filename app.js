@@ -17,6 +17,7 @@ App({
       success: res => {
       }
     })
+    this.globalData.innerAudioContext.autoplay=true;
   },
   globalData: {
     userInfo: null,
@@ -30,5 +31,8 @@ App({
     songs:[],
     musicListId:"",
     lastMusicListId:"",
+    currentPlayId:"",
+    currentPlayInfo:{},
+    keyword:"",
   }
 })

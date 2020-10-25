@@ -4,14 +4,14 @@
   align-items:center;
   font-weight: lighter;
 }
-.avatar>image{
+.avatar>.img{
   width: 120rpx;
   height: 120rpx;
   border-radius: 50%;
   vertical-align: middle;
   margin-right: 20rpx;
 }
-.small>image{
+.small>.img{
   width: 60rpx;
   height: 60rpx;
   margin-right: 10rpx;
